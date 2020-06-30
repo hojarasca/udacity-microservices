@@ -8,7 +8,8 @@ then
     echo "hadolint already there."
 else
     echo "dowloading hadolint..."
-    wget https://github.com/hadolint/hadolint/releases/download/v1.18.0/hadolint-Linux-x86_64 -O "$SCRIPTPATH/hadolint"
+    wget https://github.com/hadolint/hadolint/releases/download/v1.18.0/hadolint-Linux-x86_64 -O $HADOLINT_LOCATION
+    chmod +x $HADOLINT_LOCATION
     echo "hadolint ready."
 fi
 

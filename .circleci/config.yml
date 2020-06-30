@@ -1,11 +1,9 @@
 version: 2.1
 
-orbs:
-  python: circleci/python@0.2.1
-
 jobs:
   build:
-    executor: python/default
+    docker:
+      - image: python:3.7.3-stretch
     steps:
       - checkout
       - restore_cache:
@@ -13,14 +11,22 @@ jobs:
             - udacity-micrervices-deps-{{ checksum "requirements.txt" }}
             - hadolint
       - run:
+          command: make install
+          name: install depedencies
+      - run:
           name: Get hadolint
-          command: make download-hadolint
+          command: bash ci/download-hadolint.sh
       - run:
           name: Lint
           command: make lint
-      # - run:
-      #     command: make install
-      #     name: install depedencies
+      - save_cache:
+          key: udacity-micrervices-deps-{{ checksum "requirements.txt" }}
+          paths:
+            - venv
+      - save_cache:
+          key: hadolint
+          paths:
+            - ci/hadolint
       # - python/install-deps
       # - python/save-cache
 
