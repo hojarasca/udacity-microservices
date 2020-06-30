@@ -8,12 +8,16 @@ jobs:
     executor: python/default
     steps:
       - checkout
-      - run:
-          command: make lint
-          name: Lint
       - restore_cache:
           keys:
             - udacity-micrervices-deps-{{ checksum "requirements.txt" }}
+            - hadolint
+      - run:
+          name: Get hadolint
+          command: make download-hadolint
+      - run:
+          name: Lint
+          command: make lint
       # - run:
       #     command: make install
       #     name: install depedencies
