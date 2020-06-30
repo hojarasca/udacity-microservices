@@ -4,18 +4,23 @@ orbs:
   python: circleci/python@0.2.1
 
 jobs:
-  build-and-test:
+  build:
     executor: python/default
     steps:
       - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
       - run:
-          command: ./manage.py test
-          name: Test
+          command: make lint
+          name: Lint
+      - restore_cache:
+          keys:
+            - udacity-micrervices-deps-{{ checksum "requirements.txt" }}
+      # - run:
+      #     command: make install
+      #     name: install depedencies
+      # - python/install-deps
+      # - python/save-cache
 
 workflows:
   main:
     jobs:
-      - build-and-test
+      - build
