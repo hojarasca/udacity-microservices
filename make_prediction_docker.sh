@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# fail fast
+set -e
+
 PORT=8090
 echo "Port: $PORT"
 

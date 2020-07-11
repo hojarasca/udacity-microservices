@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# fail fast
+set -e
+
 URL=`minikube service udacity-predictions --url`
 echo "URL: $URL"
 
