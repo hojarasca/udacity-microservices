@@ -9,9 +9,6 @@ setup:
 	# Create python virtualenv
 	python3 -m venv ./venv
 
-activate:
-	source ./venv/bin/activate
-
 install:
 	# This should be run from inside a virtualenv
 	pip install --upgrade pip &&\
