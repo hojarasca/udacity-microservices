@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![hojarasca](https://circleci.com/gh/hojarasca/udacity-microservices.svg?style=svg)](https://circleci.com/gh/hojarasca/udacity-microservices.svg?style=svg)
 
 ## Project Overview
 
