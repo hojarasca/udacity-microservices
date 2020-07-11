@@ -1,24 +1,23 @@
 FROM python:3.7.3-stretch
 
-## Step 1:
-# Create a working directory
+
+# Create a working dir
 WORKDIR /app
 
-## Step 2:
-COPY ./app.py ./
-COPY ./model_data/* ./model_data/
+# Move requirements
 COPY ./requirements.txt ./
 
-## Step 3:
-# Install packages from requirements.txt
-# hadolint ignore=DL3013
+# Instal dependencies
 RUN pip install --upgrade pip &&\
     pip install --trusted-host pypi.python.org -r requirements.txt
 
-## Step 4:
+
+## Move the app and the model data
+COPY ./app.py ./
+COPY ./model_data/* ./model_data/
+
 # Expose port 80
 EXPOSE 80
 
-## Step 5:
 # Run app.py at container launch
 CMD ["python", "app.py"]
