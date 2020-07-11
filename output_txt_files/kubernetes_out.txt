@@ -1,1 +1,32 @@
-<paste log output from Kubernetes-mediated prediction, here>
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+[2020-07-11 03:38:20,825] INFO in app: Trained model:
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.1, loss='ls', max_depth=3, max_features=None,
+             max_leaf_nodes=None, min_impurity_decrease=0.0,
+             min_impurity_split=None, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=400, n_iter_no_change=None, presort='auto',
+             random_state=7, subsample=1.0, tol=0.0001,
+             validation_fraction=0.1, verbose=0, warm_start=False)
+ * Debugger is active!
+ * Debugger PIN: 741-350-132
+172.17.0.1 - - [11/Jul/2020 03:43:18] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [11/Jul/2020 03:43:18] "GET /favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [11/Jul/2020 03:44:53] "GET / HTTP/1.1" 200 -
+[2020-07-11 03:45:02,610] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2020-07-11 03:45:02,635] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-07-11 03:45:02,652] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-07-11 03:45:02,655] INFO in app: Prediction values 
+[20.35373177134412]
+172.17.0.1 - - [11/Jul/2020 03:45:02] "POST /predict HTTP/1.1" 200 -
