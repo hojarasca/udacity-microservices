@@ -1,4 +1,4 @@
-[![hojarasca](https://circleci.com/gh/hojarasca/udacity-microservices.svg?style=svg)](https://circleci.com/gh/hojarasca/udacity-microservices.svg?style=svg)
+[![hojarasca](https://circleci.com/gh/hojarasca/udacity-microservices.svg?style=svg)](https://circleci.com/gh/hojarasca/udacity-microservices.svg?style=svg) CircleCi build
 
 ## Project Overview
 
