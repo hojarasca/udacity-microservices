@@ -1,15 +1,19 @@
 #!/usr/bin/env bash
 # This file tags and uploads an image to Docker Hub
 
-# Assumes that an image is built via `run_docker.sh`
+# fail fast
+set -e
 
-# Step 1:
 # Create dockerpath
-# dockerpath=<your docker ID/path>
+dockerpath='hojarasca/udacity-predictions:latest'
 
-# Step 2:  
-# Authenticate & tag
+# Authenticate
+docker login
+
+# Tag
+docker tag udacity-predictions:latest $dockerpath
+
 echo "Docker ID and Image: $dockerpath"
 
-# Step 3:
 # Push image to a docker repository
+docker push $dockerpath
